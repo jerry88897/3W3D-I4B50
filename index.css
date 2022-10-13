@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+th {
+    border-collapse: collapse;
+}
+
+td {
+    min-width: 20px;
+    min-height: 20px;
+    text-align: center;
+    border: 1px solid;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.hwGif {
+    min-width: 300px;
+    min-height: 300px;
+}
