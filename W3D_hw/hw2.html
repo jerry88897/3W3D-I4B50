@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="hw2.css" />
+    <title>HW2 HTML Input & Vector3 API</title>
+  </head>
+
+  <body>
+    <div class="botton" id="botton">計算</div>
+    <div class="full">
+      <div class="leftpart">
+        <div class="Vvector">
+          <div class="text">V</div>
+          <div class="axis">
+            x
+            <input id="vx" type="text" class="input" />
+          </div>
+          <div class="axis">
+            y
+            <input id="vy" type="text" class="input" />
+          </div>
+          <div class="axis">
+            z
+            <input id="vz" type="text" class="input" />
+          </div>
+        </div>
+        <div class="Vvector">
+          <div class="text">W</div>
+          <div class="axis">
+            x
+            <input id="wx" type="text" class="input" />
+          </div>
+          <div class="axis">
+            y
+            <input id="wy" type="text" class="input" />
+          </div>
+          <div class="axis">
+            z
+            <input id="wz" type="text" class="input" />
+          </div>
+        </div>
+      </div>
+      <div class="counting">
+        <div class="text">inner product</div>
+        <div class="axis">
+          V•W
+          <input id="dot" type="text" class="input" />
+        </div>
+        <div class="text">V✕W(vector product)</div>
+        <div class="axis">
+          x
+          <input id="cx" type="text" class="input" />
+        </div>
+        <div class="axis">
+          y
+          <input id="cy" type="text" class="input" />
+        </div>
+        <div class="axis">
+          z
+          <input id="cz" type="text" class="input" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://threejs.org/build/three.min.js"></script>
+  <script src="hw2.js"></script>
+</html>

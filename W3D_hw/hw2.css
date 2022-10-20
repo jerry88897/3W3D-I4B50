@@ -1,0 +1,66 @@
+.Vvector {
+    display: flex;
+    background-color: rgb(238, 236, 225);
+    flex-flow: column nowrap;
+    place-content: flex-start center;
+    align-items: center;
+    width: 43%;
+    min-width: 200px;
+    max-width: 300px;
+    border-radius: 26px;
+    padding: 27px;
+    margin-bottom: 30px;
+    border: solid;
+    border-color: #94a0b9;
+    border-width: 3px;
+
+}
+
+.text {
+    text-align: left;
+    width: 65%;
+    border-bottom: 2px solid;
+    border-color: #94a0b9;
+    margin-bottom: 10px;
+
+}
+
+.axis {
+    margin-bottom: 15px;
+}
+
+.counting {
+    display: flex;
+    background-color: rgb(238, 236, 225);
+    flex-flow: column nowrap;
+    place-content: flex-start center;
+    align-items: center;
+    width: 43%;
+    max-width: 300px;
+    border-radius: 26px;
+    padding: 27px;
+    margin-bottom: 30px;
+    border: solid;
+    border-color: #94a0b9;
+    border-width: 3px;
+}
+
+.full {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.leftpart {
+    margin-right: 40px;
+}
+
+.botton {
+    background-color: khaki;
+    width: 100px;
+    text-align: center;
+    border: solid;
+    height: 22px;
+}
