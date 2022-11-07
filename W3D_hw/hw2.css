@@ -1,3 +1,7 @@
+body {
+    display: flex;
+}
+
 .Vvector {
     display: flex;
     background-color: rgb(238, 236, 225);
