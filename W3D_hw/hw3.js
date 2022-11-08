@@ -135,7 +135,7 @@ function init() {
   spotLight.target = targetObject;
   scene.add(spotLight);
 
-  let artPlaneGeometry = new THREE.PlaneGeometry(6, 6);
+  let artPlaneGeometry = new THREE.PlaneGeometry(9, 9);
   let artm = loader.load(
     "hw3Texture/DALL·E 2022-11-06 21.18.28 - A sea otter with a pearl earring by Johannes Vermeer.png"
   );
@@ -164,7 +164,7 @@ function init() {
   spotLight.target = targetObject;
   scene.add(spotLight);
 
-  artPlaneGeometry = new THREE.PlaneGeometry(7, 7);
+  artPlaneGeometry = new THREE.PlaneGeometry(9, 9);
   artm = loader.load(
     "hw3Texture/DALL·E 2022-11-06 21.20.17 - A fox in black suit and red tie by Johannes Vermeer.png"
   );
@@ -221,8 +221,6 @@ function init() {
   scene.add(targetObject);
   spotLight.target = targetObject;
   scene.add(spotLight);
-  //   spotLightHelper = new THREE.SpotLightHelper(spotLight);
-  //   scene.add(spotLightHelper);
 
   artPlaneGeometry = new THREE.PlaneGeometry(12, 12);
   artm = loader.load(
@@ -237,6 +235,35 @@ function init() {
   artPlane.rotation.y = Math.PI / 2;
   artPlane.position.set(-29.9, 2, 15);
   scene.add(artPlane);
+
+  //建立聚光燈5
+  spotLight = new THREE.SpotLight("rgb(255, 255, 200)");
+  setSpotLight(spotLight);
+  spotLight.position.set(0, 20, -10);
+  targetObject = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.5, 0.5),
+    new THREE.MeshPhongMaterial({
+      color: "black",
+    })
+  );
+  targetObject.position.set(0, 2, -29.9);
+  scene.add(targetObject);
+  spotLight.target = targetObject;
+  scene.add(spotLight);
+  spotLightHelper = new THREE.SpotLightHelper(spotLight);
+  scene.add(spotLightHelper);
+
+  artPlaneGeometry = new THREE.PlaneGeometry(12, 12);
+  artm = loader.load("hw3Texture/DALL·E 2022-11-06 21.24.41.png");
+  reSizeTex(artm, 1, 1);
+  artMat = new THREE.MeshStandardMaterial({
+    map: artm,
+  });
+  artPlane = new THREE.Mesh(artPlaneGeometry, artMat);
+  //artPlane.rotation.x = -Math.PI / 2; // 使平面與 y 軸垂直，並讓正面朝上
+  artPlane.rotation.y = -Math.PI * 2;
+  artPlane.position.set(0, 2, -29.9);
+  scene.add(artPlane);
 }
 
 // 建立動畫
@@ -249,7 +276,7 @@ function animate() {
 // 渲染場景
 function render() {
   animate();
-  //spotLightHelper.update();
+  spotLightHelper.update();
   requestAnimationFrame(render);
 }
 
