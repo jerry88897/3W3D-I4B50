@@ -2,6 +2,7 @@ let scene, renderer, camera;
 let cube;
 let spotLightHelper;
 const loader = new THREE.TextureLoader();
+const gltfLoader = new THREE.GLTFLoader();
 // 初始化場景、渲染器、相機、物體
 function init() {
   // 建立場景
@@ -32,7 +33,7 @@ function init() {
   var pointLight = new THREE.PointLight("rgb(255, 255,255)", 0.5, 150);
   pointLight.position.set(0, 30, 0);
   scene.add(pointLight, new THREE.PointLightHelper(pointLight, 2));
-  let ambientLight = new THREE.AmbientLight("rgb(80, 80,80)");
+  let ambientLight = new THREE.AmbientLight("rgb(255, 255,255)");
   scene.add(ambientLight);
   //建立地面
   const planeGeometry = new THREE.PlaneGeometry(60, 60);
@@ -264,6 +265,20 @@ function init() {
   artPlane.rotation.y = -Math.PI * 2;
   artPlane.position.set(0, 2, -29.9);
   scene.add(artPlane);
+
+  //椅子1
+  gltfLoader.load(
+    "glb/bench.glb",
+    function (gltf) {
+      let obj = gltf.scene;
+      obj.scale.set(5, 5, 5);
+      scene.add(obj);
+    },
+    undefined,
+    function (error) {
+      console.error(error);
+    }
+  );
 }
 
 // 建立動畫
