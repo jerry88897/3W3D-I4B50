@@ -34,7 +34,7 @@ function init() {
   // var pointLight = new THREE.PointLight("rgb(255, 255,255)", 0.5, 150);
   // pointLight.position.set(0, 30, 0);
   // scene.add(pointLight, new THREE.PointLightHelper(pointLight, 2));
-  let ambientLight = new THREE.AmbientLight("rgb(255, 255,255)", 1);
+  let ambientLight = new THREE.AmbientLight("rgb(255, 255,255)", 0.1);
   scene.add(ambientLight);
   //建立地面
   const planeGeometry = new THREE.PlaneGeometry(60, 60);
@@ -64,14 +64,6 @@ function init() {
   scene.add(plane);
 
   // 建立物體
-  const geometry = new THREE.BoxGeometry(1, 1, 1); // 幾何體
-  const material = new THREE.MeshPhongMaterial({
-    color: "pink",
-  }); // 材質
-  cube = new THREE.Mesh(geometry, material); // 建立網格物件
-  cube.position.set(0, 0, 0);
-  scene.add(cube);
-
   //左右牆
   wallSi = new THREE.BoxGeometry(2, 20, 60); // 幾何體
   // 材質
@@ -248,12 +240,12 @@ function init() {
       color: "black",
     })
   );
-  targetObject.position.set(0, 2, -29.9);
+  targetObject.position.set(0, 2, -31);
   scene.add(targetObject);
   spotLight.target = targetObject;
   scene.add(spotLight);
   spotLightHelper = new THREE.SpotLightHelper(spotLight);
-  scene.add(spotLightHelper);
+  //scene.add(spotLightHelper);
 
   artPlaneGeometry = new THREE.PlaneGeometry(12, 12);
   artm = loader.load("hw3Texture/DALL·E 2022-11-06 21.24.41.png");
@@ -269,13 +261,43 @@ function init() {
 
   //椅子1
   gltfLoader.load(
-    "glb/bench.glb",
+    "glb/bench1.glb",
     function (gltf) {
       let obj = gltf.scene;
       obj.scale.set(5, 5, 5);
+      obj.position.set(5, -6.3, 13);
       obj.castShadow = true;
       obj.receiveShadow = true;
       scene.add(obj);
+      //建立聚光燈椅子1
+      spotLight = new THREE.SpotLight("rgb(255, 255, 200)");
+      setSpotLight(spotLight);
+      spotLight.position.set(8, 20, 13);
+      spotLight.target = obj;
+      scene.add(spotLight);
+    },
+    undefined,
+    function (error) {
+      console.error(error);
+    }
+  );
+
+  //椅子2
+  gltfLoader.load(
+    "glb/bench1.glb",
+    function (gltf) {
+      let obj = gltf.scene;
+      obj.scale.set(5, 5, 5);
+      obj.position.set(5, -6.3, -13);
+      obj.castShadow = true;
+      obj.receiveShadow = true;
+      scene.add(obj);
+      //建立聚光燈椅子2
+      spotLight = new THREE.SpotLight("rgb(255, 255, 200)");
+      setSpotLight(spotLight);
+      spotLight.position.set(8, 20, -13);
+      spotLight.target = obj;
+      scene.add(spotLight);
     },
     undefined,
     function (error) {
@@ -286,8 +308,6 @@ function init() {
 
 // 建立動畫
 function animate() {
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
 
