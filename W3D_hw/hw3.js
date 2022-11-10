@@ -8,13 +8,13 @@ function init() {
   // 建立場景
   scene = new THREE.Scene();
   let axes = new THREE.AxesHelper(20); // 參數為座標軸長度
-  scene.add(axes);
+  //scene.add(axes);
   // 建立渲染器
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight); // 場景大小
   renderer.setClearColor("rgb(0, 0, 0)", 1.0); // 預設背景顏色
   renderer.shadowMap.enable = true; // 陰影效果
-  renderer.outputEncoding = THREE.sRGBEncoding;
+  //renderer.outputEncoding = THREE.sRGBEncoding;
 
   // 將渲染器的 DOM 綁到網頁上
   document.body.appendChild(renderer.domElement);
@@ -34,7 +34,7 @@ function init() {
   // var pointLight = new THREE.PointLight("rgb(255, 255,255)", 0.5, 150);
   // pointLight.position.set(0, 30, 0);
   // scene.add(pointLight, new THREE.PointLightHelper(pointLight, 2));
-  let ambientLight = new THREE.AmbientLight("rgb(255, 255,255)", 0.1);
+  let ambientLight = new THREE.AmbientLight("rgb(255, 255,255)", 0.5);
   scene.add(ambientLight);
   //建立地面
   const planeGeometry = new THREE.PlaneGeometry(60, 60);
@@ -268,6 +268,7 @@ function init() {
       obj.position.set(5, -6.3, 13);
       obj.castShadow = true;
       obj.receiveShadow = true;
+
       scene.add(obj);
       //建立聚光燈椅子1
       spotLight = new THREE.SpotLight("rgb(255, 255, 200)");
